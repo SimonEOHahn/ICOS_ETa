@@ -1,4 +1,4 @@
-# EOAgriTwin - Evapotranspiration Reference Processing
+Evapotranspiration Reference Processing
 
 # 1) List of Station
 - DE-Geb:
