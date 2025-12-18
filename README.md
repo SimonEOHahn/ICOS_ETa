@@ -28,11 +28,11 @@ FLUXES and METEO data files using the ONEFlux pipeline. The code used is availab
 through the ICOS ETC GitHub repository and processing described in Pastorello et al.
 2020 (Scientific Data) https://doi.org/10.1038/s41597-020-0534-3
 
-Data structure:
-| First Header  | Second Header | Third Header |
+Data structure of needed Variables:
+| Variable  | Description | Unit |
 | ------------- | ------------- | ------------- |
-| TIMESTAMP_START  | Content Cell  | Content Cell  |
-| TIMESTAMP_END  | Content Cell  | Content Cell  |
+| TIMESTAMP_START  | ISO timestamp start of averaging period  | YYYYMMDDHHMM  |
+| TIMESTAMP_END  | ISO timestamp end of averaging period  | YYYYMMDDHHMM  |
 | H_CORR  | Sensible heat flux  | W m-2  |
 | LE_CORR  | Latent heat flux  | W m-2  |
 | TA_F  | Air temperature  | deg C  |
@@ -41,7 +41,15 @@ Data structure:
 
 
 # 3) NASA ECOSTRESS 
-Data description:
+Data description: 
+Evapotranspiration (ET) is one of the main science outputs from the ECOsystem Spaceborne 
+Thermal Radiometer Experiment on Space Station (ECOSTRESS) mission (Fisher et al., 2020). 
+ET is a Level-3 (L-3) product constructed from a combination of the ECOSTRESS Level-2 (L-2) 
+Land Surface Temperature (LST) product (Hulley et al., 2022) and ancillary data sources. The 
+rate of ET is controlled by many environmental and biological controls including: incoming 
+radiation, the atmospheric water vapor deficit, soil water availability, and vegetation physiology 
+and phenology (Brutsaert, 1982; Monteith, 1965; Penman, 1948). Therefore, to accurately model 
+ET, it remains important to consider these variables. 
 
 # 4) LE to ETa Conversion Method
 Method description:
