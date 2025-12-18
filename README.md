@@ -21,7 +21,23 @@ The Integrated Carbon Observation System, ICOS, provides standardised and open d
 The ICOS community consists of more than 500 scientists in both its current Member and Observer countries and beyond. More than 80 renowned universities or institutes are a part of the ICOS community. The ICOS community has strong connections to colleagues and operators outside ICOS. ICOS-based knowledge supports policy- and decision-making to combat climate change and its impacts.
 
 Data structure: 
+half-hourly standard FLUXNET product including gap-filled NEE, GPP,
+RECO and all the related variables and uncertainty and gap-filled version of selected
+meteorological variables. Data are processed by the ICOS ETC starting from the
+FLUXES and METEO data files using the ONEFlux pipeline. The code used is available
+through the ICOS ETC GitHub repository and processing described in Pastorello et al.
+2020 (Scientific Data) https://doi.org/10.1038/s41597-020-0534-3
 
+Data structure:
+| First Header  | Second Header | Third Header |
+| ------------- | ------------- | ------------- |
+| TIMESTAMP_START  | Content Cell  | Content Cell  |
+| TIMESTAMP_END  | Content Cell  | Content Cell  |
+| H_CORR  | Sensible heat flux  | W m-2  |
+| LE_CORR  | Latent heat flux  | W m-2  |
+| TA_F  | Air temperature  | deg C  |
+| WD  | Wind direction  | Decimal degrees  |
+| WS  | Wind speed  | m s-1  |
 
 
 # 3) NASA ECOSTRESS 
