@@ -51,6 +51,32 @@ radiation, the atmospheric water vapor deficit, soil water availability, and veg
 and phenology (Brutsaert, 1982; Monteith, 1965; Penman, 1948). Therefore, to accurately model 
 ET, it remains important to consider these variables. 
 
+ECOSTRESS data was obtained from the platform APPEEARS (https://appeears.earthdatacloud.nasa.gov/explore). 
+Request Example: 
+    Name: FLUX_ECOSTRESS_YYYY 
+
+    Details:  
+
+        Start Date: 01-01-2018  
+
+        End Date: 12-31-2018
+    
+        Layers:  
+
+            ETdaily (ECO_L3T_JET.002)  
+    
+        Coordinates:  
+
+            DE-Gri, Grassland, 50.95004, 13.51259  
+            DE-RuS, Cropland, 50.865906, 6.4471445  
+            DE-Kli, Cropland, 50.89306, 13.52238  
+            DE-Geb, Cropland, 51.09973, 10.91463  
+            DE-RuR, Grassland, 50.621914, 6.304126  
+            DE-Brs, Cropland, 52.29663, 10.44871  
+            DE-Gsb, Grassland, 52.029648, 11.10478  
+    
+    Version: This request was processed by AppEEARS version 3.104  
+
 # 4) LE to ETa Conversion Method
 Method description:
 Evapotranspiration (ET) can be calculated from latent heat (LE) by dividing by latent heat of vaporization (λ): ET=LE/λ
