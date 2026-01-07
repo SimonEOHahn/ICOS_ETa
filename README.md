@@ -11,8 +11,8 @@ Evapotranspiration Reference Processing
 - DE-GsB: https://meta.icos-cp.eu/resources/stations/ES_DE-GsB
 - DE-RuR: https://meta.icos-cp.eu/resources/stations/ES_DE-RuR
 
-Map of Stations: <img width="582" height="620" alt="image" src="https://github.com/user-attachments/assets/c2f8985d-5bac-4b08-8422-918fd41e80d3" />
-
+Map of Stations:
+<img width="582" height="620" alt="image" src="https://github.com/user-attachments/assets/c2f8985d-5bac-4b08-8422-918fd41e80d3" />
 
 # 2) ICOS Flux Tower Network
 Description: 
@@ -28,7 +28,7 @@ FLUXES and METEO data files using the ONEFlux pipeline. The code used is availab
 through the ICOS ETC GitHub repository and processing described in Pastorello et al.
 2020 (Scientific Data) https://doi.org/10.1038/s41597-020-0534-3
 
-Data structure of needed Variables:
+Data structure of important Variables:
 | Variable  | Description | Unit |
 | ------------- | ------------- | ------------- |
 | TIMESTAMP_START  | ISO timestamp start of averaging period  | YYYYMMDDHHMM  |
@@ -53,5 +53,16 @@ ET, it remains important to consider these variables.
 
 # 4) LE to ETa Conversion Method
 Method description:
-References: 
-Code example: 
+Evapotranspiration (ET) can be calculated from latent heat (LE) by dividing by latent heat of vaporization (λ): ET=LE/λ
+Latent heat of vaporization varies slightly with temperature, but is often set to 2.45 MJ kg-1 which is the value for an air temperature of 20 °C. Allen et al. (1998) also provides an equation for calculating λ with air temperature variation, see Annex 3 equation 3-1: λ=2.501−(2.361×10−3)×Ta
+
+In R, this was implemented using following code: 
+latent_heat_vaporization <- function(temp) {
+  2.501e6 - 2370 * temp
+lambda = latent_heat_vaporization(TA_F),
+ETa = (LE_CORR / lambda) * 86400  # mm/day
+
+Note: DE-Brs and DE-GsB use LE_F_MDS instead of LE_CORR, as LE_CORR (corrected LE_F_MDS) is not present in their dataset. 
+
+
+References: Allen et al. (1998) https://www.fao.org/4/x0490e/x0490e00.htm
